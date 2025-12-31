@@ -1,0 +1,14 @@
+///////////////
+// Autostart //
+///////////////
+
+spawn-at-startup "waybar"
+
+// best way I can figure out how to preload a background wallpaper atm
+spawn-sh-at-startup "swaybg -i $HOME/Pictures/Wallpaper/Ember.jpg"
+spawn-sh-at-startup "pulseaudio -k"
+
+hotkey-overlay {
+  //uncomment this line to disable the "Important Hotkeys" pop-ups at startup.
+  skip-at-startup
+}

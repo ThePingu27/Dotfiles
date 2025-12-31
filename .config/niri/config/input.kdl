@@ -1,0 +1,15 @@
+////////////
+// Inputs //
+////////////
+
+input {
+  keyboard {
+    xkb {
+      layout "us"
+    }
+  }
+  mouse {
+  }
+  mod-key "Super"
+  focus-follows-mouse max-scroll-amount="0%"
+}
