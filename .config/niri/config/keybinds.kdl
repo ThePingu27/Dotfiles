@@ -11,7 +11,7 @@ binds {
   // Custom applications bindings
   Mod+Return hotkey-overlay-title="Open a Terminal: Ghostty" { spawn "ghostty"; }
   Mod+Space hotkey-overlay-title="Run an application: fuzzel" { spawn "fuzzel"; }
-  Super+L hotkey-overlay-title="Lock the screen: swaylock" { spawn "swaylock"; }
+  Super+L hotkey-overlay-title="Lock the screen: swaylock" { spawn-sh "swaylock --image $HOME/Pictures/Wallpaper/Ember.png"; }
   Mod+B hotkey-overlay-title="Open browser: Librewolf" { spawn "librewolf"; }
   Mod+E hotkey-overlay-title="Open file manager: Thunar" { spawn "thunar"; }
   Mod+S hotkey-overlay-title="Open LaTeX editor: Sublime" { spawn "subl"; }
