@@ -7,7 +7,8 @@ binds {
   Mod+H { show-hotkey-overlay; }
 
   // Custom applications bindings
-  Mod+Return hotkey-overlay-title="Open a Terminal: Kitty" { spawn "kitty"; }
+  //Mod+Return hotkey-overlay-title="Open a Terminal: Kitty" { spawn "kitty"; } 
+  Mod+Return hotkey-overlay-title="Open a Terminal: Ghostty" { spawn "ghostty"; }
   Mod+Space hotkey-overlay-title="Run an application: fuzzel" { spawn "fuzzel"; }
   Super+L hotkey-overlay-title="Lock the screen: swaylock" { spawn-sh "swaylock --image $HOME/Pictures/Wallpaper/Ember.png"; }
   Mod+B hotkey-overlay-title="Open browser: Librewolf" { spawn "librewolf"; }
@@ -34,6 +35,7 @@ binds {
 
   // Window management
   Mod+Q repeat=false { close-window; }
+  Mod+Shift+Q repeat=false { spawn-sh "~/.config/niri/scripts/KillActiveProcess.sh"; }
   Mod+Tab repeat=false { toggle-overview; }
 
   // Workspace bindings
