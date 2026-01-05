@@ -16,7 +16,7 @@ include "config/keybinds.kdl"
 ////////////
 
 layout {
-    gaps 6
+    gaps 4
     center-focused-column "never"
     always-center-single-column
     default-column-display "tabbed"
@@ -54,7 +54,7 @@ layout {
     focus-ring {
       on
       // How many logical pixels the ring extends out from the windows.
-      width 4
+      width 2
       // Colors can be set in a variety of ways:
       // - CSS named colors: "red"
       // - RGB hex: "#rgb", "#rgba", "#rrggbb", "#rrggbbaa"
