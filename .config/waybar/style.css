@@ -3,7 +3,6 @@
     font-weight: bold;
     min-height: 0;
     font-size: 15px;
-    color: #000000;
     font-feature-settings: '"zero", "ss01", "ss02", "ss03", "ss04", "ss05", "cv31"';
 }
 
@@ -152,6 +151,9 @@ tooltip label {
 #workspaces {
     margin: 0 6px;
     color: #000000;
+}
+#user {
+  color: #ffffff;
 }
 #custom-quit,
 #custom-lock,

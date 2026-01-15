@@ -6,9 +6,8 @@ binds {
   // Show hotkeys
   Mod+H { show-hotkey-overlay; }
 
-  // Custom applications bindings
-  //Mod+Return hotkey-overlay-title="Open a Terminal: Kitty" { spawn "kitty"; } 
-  Mod+Return hotkey-overlay-title="Open a Terminal: Ghostty" { spawn "ghostty"; }
+  // Custom bindings
+  Mod+Return hotkey-overlay-title="Open a Terminal: Kitty" { spawn "kitty"; } 
   Mod+Space hotkey-overlay-title="Run an application: fuzzel" { spawn "fuzzel"; }
   Super+L hotkey-overlay-title="Lock the screen: swaylock" { spawn-sh "swaylock --image $HOME/Pictures/Wallpaper/Ember.png"; }
   Mod+B hotkey-overlay-title="Open browser: Librewolf" { spawn "librewolf"; }
@@ -16,7 +15,8 @@ binds {
   Mod+S hotkey-overlay-title="Open LaTeX editor: Sublime" { spawn "subl"; }
   Mod+O hotkey-overlay-title="Open Pdf viewer: Okular" { spawn "okular"; }
   Mod+D hotkey-overlay-title="Open Vencord" { spawn "vesktop"; }
-  //Mod+T hotkey-overlay-title="Open Neovim" { spawn "nvim"; }
+  Mod+V hotkey-overlay-title="adjust volume settings: pavucontrol" { spawn "pavucontrol"; }
+  Mod+Alt+R hotkey-overlay-title="refresh Waybar" { spawn-sh "$HOME/.config/niri/scripts/Refresh.sh"; }
 
   // Audio bindings
   XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
@@ -137,7 +137,7 @@ binds {
   Mod+Ctrl+Shift+WheelScrollUp   { move-column-left; }
 
   // Screenshot Binding
-  Mod+Shift+S  { spawn-sh "~/.config/niri/scripts/Screenshot.sh"; }
+  Mod+Shift+S  { spawn-sh "$HOME/.config/niri/scripts/Screenshot.sh"; }
 
   // Misc. bindings
   Mod+BracketLeft { consume-or-expel-window-left; }
