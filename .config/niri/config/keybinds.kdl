@@ -11,12 +11,15 @@ binds {
   Mod+Space hotkey-overlay-title="Run an application: fuzzel" { spawn "fuzzel"; }
   Super+L hotkey-overlay-title="Lock the screen: swaylock" { spawn-sh "swaylock --image $HOME/Pictures/Wallpaper/Ember.png"; }
   Mod+B hotkey-overlay-title="Open browser: Librewolf" { spawn "librewolf"; }
-  Mod+E hotkey-overlay-title="Open file manager: Thunar" { spawn "thunar"; }
+  Mod+E hotkey-overlay-title="Open terminal file manager: Thunar" { spawn-sh "kitty yazi"; }
+  Mod+Shift+E hotkey-overlay-title="Open file manager: Thunar" { spawn "thunar"; }
   Mod+S hotkey-overlay-title="Open LaTeX editor: Sublime" { spawn "subl"; }
   Mod+O hotkey-overlay-title="Open Pdf viewer: Okular" { spawn "okular"; }
   Mod+D hotkey-overlay-title="Open Vencord" { spawn "vesktop"; }
   Mod+V hotkey-overlay-title="adjust volume settings: pavucontrol" { spawn "pavucontrol"; }
   Mod+Alt+R hotkey-overlay-title="refresh Waybar" { spawn-sh "$HOME/.config/niri/scripts/Refresh.sh"; }
+  Ctrl+Shift+S hotkey-overlay-title="Open games: Steam" { spawn "steam"; }
+  Mod+T hotkey-overlay-title="Open Neovim" { spawn-sh "kitty nvim"; }
 
   // Audio bindings
   XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
@@ -162,7 +165,7 @@ binds {
   Mod+Shift+Equal { set-window-height "+10%"; }
 
   // Quit Bindings
-  Mod+Shift+E { quit; }
+  Mod+Shift+Tab { quit; }
   Ctrl+Alt+Delete { quit; }
 
   Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
