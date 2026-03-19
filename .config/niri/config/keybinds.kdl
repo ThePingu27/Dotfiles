@@ -11,7 +11,7 @@ binds {
   Mod+Space hotkey-overlay-title="Run an application: fuzzel" { spawn "fuzzel"; }
   Super+L hotkey-overlay-title="Lock the screen: swaylock" { spawn-sh "swaylock --image $HOME/Pictures/Wallpaper/Ember.png"; }
   Mod+B hotkey-overlay-title="Open browser: Librewolf" { spawn "librewolf"; }
-  Mod+E hotkey-overlay-title="Open terminal file manager: Thunar" { spawn-sh "kitty yazi"; }
+  Mod+E hotkey-overlay-title="Open terminal file manager: Yazi" { spawn-sh "kitty yazi"; }
   Mod+Shift+E hotkey-overlay-title="Open file manager: Thunar" { spawn "thunar"; }
   Mod+S hotkey-overlay-title="Open LaTeX editor: Sublime" { spawn "subl"; }
   Mod+O hotkey-overlay-title="Open Pdf viewer: Okular" { spawn "okular"; }
@@ -38,7 +38,7 @@ binds {
 
   // Window management
   Mod+Q repeat=false { close-window; }
-  Mod+Shift+Q repeat=false { spawn-sh "~/.config/niri/scripts/KillActiveProcess.sh"; }
+  Mod+Shift+Q repeat=false hotkey-overlay-title="Kill active process" { spawn-sh "~/.config/niri/scripts/KillActiveProcess.sh"; }
   Mod+Tab repeat=false { toggle-overview; }
 
   // Workspace bindings
@@ -140,7 +140,10 @@ binds {
   Mod+Ctrl+Shift+WheelScrollUp   { move-column-left; }
 
   // Screenshot Binding
-  Mod+Shift+S  { spawn-sh "$HOME/.config/niri/scripts/Screenshot.sh"; }
+  Mod+Shift+S hotkey-overlay-title="Take a screenshot" { spawn-sh "$HOME/.config/niri/scripts/Screenshot.sh"; }
+  
+  // switch-focus-between-floating-and-tiling
+  Ctrl+Shift+F { switch-focus-between-floating-and-tiling; }
 
   // Misc. bindings
   Mod+BracketLeft { consume-or-expel-window-left; }
