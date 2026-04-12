@@ -26,9 +26,6 @@ image_quality   = 75
 ueberzug_scale  = 1
 ueberzug_offset = [ 0, 0, 0, 0 ]
 
-[flavor]
-dark = "catppuccin-mocha"
-
 [opener]
 edit = [
 	{ run = "${EDITOR:-nvim} %s", desc = "$EDITOR",      for = "unix", block = true },
@@ -240,3 +237,6 @@ sort_by      	 = "none"
 sort_sensitive = false
 sort_reverse 	 = false
 sort_translit  = false
+
+[flavor]
+dark = "catppuccin-mocha"

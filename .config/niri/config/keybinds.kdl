@@ -20,6 +20,7 @@ binds {
   Mod+Alt+R hotkey-overlay-title="refresh Waybar" { spawn-sh "$HOME/.config/niri/scripts/Refresh.sh"; }
   Ctrl+Shift+S hotkey-overlay-title="Open games: Steam" { spawn "steam"; }
   Mod+T hotkey-overlay-title="Open Neovim" { spawn-sh "kitty nvim"; }
+  Mod+W hotkey-overlay-title="Change Wallpaper" { spawn-sh "$HOME/.config/niri/scripts/Wallpaper.sh"; }
 
   // Audio bindings
   XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
@@ -120,7 +121,7 @@ binds {
   Mod+Shift+I         { move-workspace-up; }
 
   // Column Display
-  Mod+W { toggle-column-tabbed-display; }
+  //Mod+W { toggle-column-tabbed-display; }
   
   // Mouse-binds
   // Mouse Wheel Bindings
