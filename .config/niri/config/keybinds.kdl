@@ -67,12 +67,15 @@ binds {
 
   // Focus movement
   Mod+Left  { focus-column-left; }
+  Mod+Right { focus-column-right; }
   Mod+Down  { focus-workspace-down; }
   Mod+Up    { focus-workspace-up; }
   Mod+MouseBack  { focus-window-down; }
   Mod+MouseForward    { focus-window-up; }
-  Mod+Right { focus-column-right; }
 
+  Mod+Shift+A { focus-column-left; }
+  Mod+Shift+D { focus-column-right; }
+ 
   // Window Movement
   Mod+Ctrl+Left  { move-column-left; }
   Mod+Ctrl+Down  { move-window-down; }

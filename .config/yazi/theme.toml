@@ -1,4 +1,5 @@
-"$schema" = "https://yazi-rs.github.io/schemas/yazi.json"
+#:schema https://yazi-rs.github.io/schemas/theme.json
+# vim:fileencoding=utf-8:foldmethod=marker
 
 [mgr]
 ratio          = [ 1, 4, 3 ]
