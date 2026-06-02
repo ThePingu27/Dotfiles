@@ -15,8 +15,6 @@
     // Properties that apply once upon window opening.
     default-column-width { proportion 0.75; }
     default-window-height { fixed 500; }
-    open-on-output "Some Company CoolMonitor 1234"
-    open-on-workspace "chat"
     open-maximized true
     open-maximized-to-edges true
     open-fullscreen true
@@ -25,7 +23,7 @@
 
     // Properties that apply continuously.
     draw-border-with-background false
-    opacity 0.5
+    opacity 1.0
     block-out-from "screencast"
     // block-out-from "screen-capture"
     variable-refresh-rate true
@@ -43,10 +41,6 @@
         // active-gradient from="#80c8ff" to="#bbddff" angle=45
         // inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
         // urgent-gradient from="#800" to="#a33" angle=45
-    }
-
-    border {
-        // Same as focus-ring.
     }
 
     shadow {
@@ -135,7 +129,29 @@ window-rule {
     // - host Firefox (app-id is "firefox")
     // - Flatpak Firefox (app-id is "org.mozilla.firefox")
     match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+    match app-id=r#"firefox$"# title="^Library$"
+    match app-id=r#"mpv$"#
+    match app-id=r#"libresprite$"#
+    match app-id=r#"waypaper$"#
+    match app-id=r#"Audacity$"#
+
     open-floating true
+    opacity 1.0
+}
+
+window-rule {
+    match app-id=r#"chromium$"#
+    match app-id=r#"vivaldi-stable$"#
+    match app-id=r#"virt-manager$"#
+    match app-id=r#"^com\.obsproject\.Studio$"#
+
+    opacity 1.0
+}
+
+window-rule {
+    match app-id=r#"^com\.obsproject\.Studio$"#
+
+    min-width 876
 }
 
 // Example: block out two password managers from screen capture.
