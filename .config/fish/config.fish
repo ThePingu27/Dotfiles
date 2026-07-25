@@ -102,3 +102,14 @@ if test -d $DEFAULT_ENV; and test -f $DEFAULT_ENV/bin/activate.fish
         echo "🐍 Activated $DEFAULT_ENV automatically on shell start"
     end
 end
+
+# ---- yazi shell wrapper ----
+# 
+function y
+    set tmp (mktemp -t "yazi-cwd.XXXXXX")
+    command yazi $argv --cwd-file="$tmp"
+    if read -z cwd <"$tmp"; and [ "$cwd" != "$PWD" ]; and test -d "$cwd"
+        builtin cd -- "$cwd"
+    end
+    command rm -f -- "$tmp"
+end
