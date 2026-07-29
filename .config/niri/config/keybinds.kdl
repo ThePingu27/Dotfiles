@@ -173,7 +173,7 @@ binds {
 
   // Quit Bindings
   Mod+Shift+Tab { quit; }
-  Ctrl+Alt+Delete { quit; }
+  //Ctrl+Alt+Delete { quit; }
 
   Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
 }
