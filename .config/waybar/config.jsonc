@@ -9,9 +9,31 @@
   "margin-left": 8,
   "margin-right": 8,
 
-  "modules-left": ["clock", "cpu", "memory", "network"],
+  "modules-left": ["clock", "cpu", "temperature", "memory", "network"],
   "modules-center": ["hyprland/workspaces"],
-  "modules-right": ["pulseaudio", "tray","group/group-power"],
+  "modules-right": [ "custom/cava_mviz", "custom/playerctl" ,"pulseaudio", "tray", "group/group-power"],
+
+  "hyprland/workspaces": {
+    "format": "{icon}",
+      "format-icons": {
+        "1": "一",
+        "2": "二",
+        "3": "三",
+        "4": "四",
+        "5": "五",
+        "6": "六",
+        "7": "七",
+        "8": "八",
+        "9": "九",
+        "10": "十"
+      },
+    "on-scroll-up": "hyprctl dispatch split-cycleworkspaces -1",
+    "on-scroll-down": "hyprctl dispatch split-cycleworkspaces +1",
+    "active-only": false,
+    "show-special": false,
+    "on-click": "activate",
+    "all-outputs": false
+  },
 
   //"niri/workspaces": {
   //  "format": "{icon}",
@@ -33,35 +55,16 @@
   //    }
   //},
 
-  "hyprland/workspaces": {
-    "format": "{icon}",
-      "format-icons": {
-        "1": "一",
-        "2": "二",
-        "3": "三",
-        "4": "四",
-        "5": "五",
-        "6": "六",
-        "7": "七",
-        "8": "八",
-        "9": "九",
-        "10": "十"
-      },
-      "on-scroll-up": "hyprctl dispatch split-cycleworkspaces -1",
-      "on-scroll-down": "hyprctl dispatch split-cycleworkspaces +1",
-      "all-outputs": false
-  },
-
   "clock": {
     "format": "{:%I:%M %p}",
-      "rotate": 0,
-      "format-alt": "{:%A, %B %d, %Y (%R)}",
-      "tooltip-format": "<tt><small>{calendar}</small></tt>",
-      "calendar": {
-        "mode": "month",
-      	"format": {
-      	"months": "<span color='#aecce6'><b>{}</b></span>",
-    		"days": "<span color='#aecce6'><b>{}</b></span>",
+    "rotate": 0,
+    "format-alt": "{:%A, %B %d, %Y (%R)}",
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode": "month",
+      "format": {
+        "months": "<span color='#aecce6'><b>{}</b></span>",
+        "days": "<span color='#aecce6'><b>{}</b></span>",
         "weekdays": "<span color='#df373a'><b>{}</b></span>",
         "today": "<span color='#df373a'><b>{}</b></span>"
       }
@@ -85,6 +88,29 @@
     "format-alt": " Up: {bandwidthUpBytes}",
     "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
     "interval": 2
+  },
+
+  "memory": {
+    "interval": 5,
+    "format": "󰾆  Mem: {}%",
+    "max-length": 15
+  },
+
+  "temperature": {
+  	"interval": 10,
+  	"tooltip": true,
+  	"hwmon-path": [
+  		"/sys/class/hwmon/hwmon1/temp1_input",
+  		"/sys/class/thermal/thermal_zone0/temp"
+  	],
+  	//"thermal-zone": 0,
+  	"critical-threshold": 82,
+  	"format-critical": "{temperatureC}°C {icon}",
+  	"format": "{temperatureC}°C {icon}",
+  	"format-icons": [
+  		"󰈸"
+  	],
+  	"on-click-right": "$HOME/.config/hypr/scripts/WaybarScripts.sh --nvtop"
   },
 
   "tray": {
@@ -113,11 +139,28 @@
     "ignored-sinks": ["Easy Effects Sink"]
   },
 
-  "memory": {
-    "interval": 5,
-    "format": "󰾆  Mem: {}%",
-    "max-length": 15
+  // This is a custom cava visualizer
+  "custom/cava_mviz": {
+  	"exec": "$HOME/.config/hypr/scripts/WaybarCava.sh",
+  	"format": "{}",
+  	"return-type": "text",
+  	"tooltip": false
   },
+  
+  "custom/playerctl": {
+  	"format": "<span>{}</span>",
+  	"return-type": "json",
+  	"max-length": 25,
+  	"exec": "playerctl -a metadata --format '{\"text\": \"{{artist}}  {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
+  	"on-click-middle": "playerctl play-pause",
+  	"on-click": "playerctl previous",
+  	"on-click-right": "playerctl next",
+  	"scroll-step": 5.0,
+  	"on-scroll-up": "$HOME/.config/hypr/scripts/Volume.sh --inc",
+  	"on-scroll-down": "$HOME/.config/hypr/scripts/Volume.sh --dec",
+  	"smooth-scrolling-threshold": 1,
+  },
+
 	// A grouped module for all session buttons, like logout, shutdown, etc.
 	// Commands used are Hyprland specific. Check and replace commands for other desktops.
   "group/group-power": {
@@ -145,21 +188,25 @@
     "tooltip-format": "Exit",
     "on-click": "hyprctl dispatch exit"
   },
+
   "custom/lock": {
     "format": "󰍁",
     "tooltip-format": "󰷛  Screen Lock",
     "on-click": "swaylock"
   },
+
   "custom/reboot": {
     "format": "󰜉",
     "tooltip-format": "Reboot",
     "on-click": "systemctl reboot"
   },
+
   "custom/shutdown": {
     "format": "⏻",
     "tooltip-format": "Shutdown",
     "on-click": "shutdown now"
   },
+
   "user": {
     "format": "{user}", //Prints the user name.
     "height": 30,
@@ -167,15 +214,15 @@
     "icon": true
   },
 
-  "niri/workspaces#rw": {
+  "hyprland/workspaces#rw": {
 	  "disable-scroll": true,
 	  "all-outputs": true,
 	  "warp-on-scroll": false,
 	  "sort-by-number": true,
 	  "show-special": false,
 	  "on-click": "activate",
-	  "on-scroll-up": "hyprctl dispatch workspace e+1",
-	  "on-scroll-down": "hyprctl dispatch workspace e-1",
+	  "on-scroll-up": "hyprctl dispatch split-cycleworkspaces e+1",
+	  "on-scroll-down": "hyprctl dispatch split-cycleworkspaces e-1",
 	  "persistent-workspaces": {
 	  	"*": 5
 	    },

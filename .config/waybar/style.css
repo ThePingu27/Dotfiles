@@ -111,6 +111,8 @@ tooltip label {
     margin: 5px;
     padding: 2px 15px;
 }
+#custom-cava_mviz,
+#custom-playerctl,
 #cpu {
     color: #F3F4F5;
     background: #0F1419;
@@ -118,6 +120,7 @@ tooltip label {
     margin: 5px;
     padding: 2px 15px;
 }
+#temperature,
 #memory {
     color: #E6B673;
     background: #0F1419;

@@ -1,6 +1,6 @@
---[[
---  Keybindings
---]]
+------------------------------------------------------------
+-- Keybindings
+------------------------------------------------------------
 
 local scripts = "$HOME/.config/hypr/scripts"
 local mainMod = "SUPER"
@@ -81,3 +81,6 @@ hl.bind(mainMod .. " + SHIFT + up", smart_move(0, -15, "up"), { repeating = true
 hl.bind(mainMod .. " + SHIFT + K", smart_move(0, -15, "up"), { repeating = true })
 hl.bind(mainMod .. " + SHIFT + down", smart_move(0, 15, "down"), { repeating = true })
 hl.bind(mainMod .. " + SHIFT + J", smart_move(0, 15, "down"), { repeating = true })
+
+-- Scrolling keybindings
+hl.bind(mainMod .. " + R", hl.dsp.layout("colresize +conf"))

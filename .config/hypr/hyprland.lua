@@ -3,7 +3,6 @@
 --]]
 
 require("config.monitor")
-require("config.variables")
 require("config.autostart")
 require("config.environment")
 require("config.aesthetics")
